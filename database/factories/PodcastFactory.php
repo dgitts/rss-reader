@@ -14,7 +14,12 @@ class PodcastFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->text,
+            'artwork_url' => $this->faker->url(),
+            'rss_feed_url' => $this->faker->url(),
+            'description' => $this->faker->paragraph(),
+            'language' => 'en',
+            'website_url' => $this->faker->url(),
         ];
     }
 }

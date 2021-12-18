@@ -15,10 +15,10 @@ class CreateEpisodesTable extends Migration
     {
         Schema::create('episodes', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('description');
-            $table->string('audio_url')->nullable();
-            $table->string('episode_url')->nullable();
+            $table->text('title');
+            $table->text('description')->nullable();
+            $table->text('audio_url')->nullable();
+            $table->text('episode_url')->nullable();
             $table->foreignId('podcast_id')->index();
             $table->timestamps();
             $table->softDeletes();

@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Episode;
-use App\Http\Requests\StoreEpisodeRequest;
-use App\Http\Requests\UpdateEpisodeRequest;
+use App\Http\Traits\PodcastParserTrait;
+use Illuminate\Http\Request;
 
-class EpisodeController extends Controller
+class PodcastParserController extends Controller
 {
+    use PodcastParserTrait;
+
     /**
      * Display a listing of the resource.
      *
@@ -31,21 +32,21 @@ class EpisodeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreEpisodeRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreEpisodeRequest $request)
+    public function store(Request $request)
     {
-        //
+//        $this->parsePodcast($request->podcastUrl);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Episode  $episode
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Episode $episode)
+    public function show($id)
     {
         //
     }
@@ -53,10 +54,10 @@ class EpisodeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Episode  $episode
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Episode $episode)
+    public function edit($id)
     {
         //
     }
@@ -64,11 +65,11 @@ class EpisodeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateEpisodeRequest  $request
-     * @param  \App\Models\Episode  $episode
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateEpisodeRequest $request, Episode $episode)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -76,10 +77,10 @@ class EpisodeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Episode  $episode
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Episode $episode)
+    public function destroy($id)
     {
         //
     }
